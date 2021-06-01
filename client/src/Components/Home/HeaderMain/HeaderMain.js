@@ -13,7 +13,10 @@ const HeaderMain = () => {
           repellat explicabo eaque esse dolore provident quod, error harum
           rerum.
         </p>
-        <button className="btn btn-primary"> Get Appoinment</button>
+        <button style={{ backgroundColor: '#1cc7c1' }} className="btn">
+          {' '}
+          Get Appoinment
+        </button>
       </div>
       <div className="col-md-6">
         <img className="img-fluid" src={chair} alt="" />
