@@ -1,24 +1,16 @@
-.info-card {
-  padding: 0 5px !important;
+.info-card{
+    padding: 0 5px;
 }
-.info-primary {
-  background-color: #1cc7c1;
+.info-primary{
+    background-color: #1CC7C1;
 }
-
-.info-dark {
-  background-color: #3a4256;
-  color: white;
+.info-dark{
+    background-color:#3A4256;
 }
-
-.info-container {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
+.info-container{
+    height: 100px;
+    padding:30px;
 }
-
-.info-icon {
-  font-size: 3em;
-  margin-right: 12px;
+.info-icon{
+    font-size: 3em;
 }
