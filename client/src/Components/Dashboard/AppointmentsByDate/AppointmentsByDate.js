@@ -1,9 +1,13 @@
 import React from 'react';
 
-const AppointmentsByDate = () => {
+const AppointmentsByDate = ({ appointments }) => {
+  console.log(appointments);
   return (
     <div>
-      <h1>Appointmentbydate</h1>
+      <h1>Appointmentbydate {appointments.length} </h1>
+      {appointments.map((app) => (
+        <li key={app._id}>{app.name}</li>
+      ))}
     </div>
   );
 };
