@@ -23,8 +23,24 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-    closeModal();
+    data.service = appointmentOn;
+    data.date = date;
+    data.createAppointment = new Date();
+
+    fetch('http://localhost:5000/addAppointment', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((res) => res.json())
+      .then((success) => {
+        if (success) {
+          closeModal();
+          alert('Appointment Created Succesfully');
+        }
+      });
   };
 
   return (
@@ -77,7 +93,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             <div className="col-4">
               <select
                 className="form-control"
-                // ref={register({ required: true })}
                 {...register('gender', { required: true })}
               >
                 <option disabled={true} value="Not set">
@@ -93,7 +108,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             </div>
             <div className="col-4">
               <input
-                // ref={register({ required: true })}
                 {...register('age', { required: true })}
                 className="form-control"
                 placeholder="Your Age"
@@ -105,7 +119,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             </div>
             <div className="col-4">
               <input
-                // ref={register({ required: true })}
                 {...register('weight', { required: true })}
                 className="form-control"
                 placeholder="Weight"
