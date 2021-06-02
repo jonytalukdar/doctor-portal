@@ -22,7 +22,10 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
 
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    closeModal();
+  };
 
   return (
     <div>
@@ -40,8 +43,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           <div className="form-group">
             <input
               type="text"
-              {...register('yourName', { required: true })}
-              name="name"
+              {...register('name', { required: true })}
               placeholder="Your Name"
               className="form-control"
             />
@@ -52,8 +54,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           <div className="form-group">
             <input
               type="text"
-              {...register('phoneNumber', { required: true })}
-              name="phone"
+              {...register('phone', { required: true })}
               placeholder="Phone Number"
               className="form-control"
             />
@@ -64,9 +65,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           <div className="form-group">
             <input
               type="text"
-              //   ref={register({ required: true })}
               {...register('email', { required: true })}
-              name="email"
               placeholder="Email"
               className="form-control"
             />
@@ -78,7 +77,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             <div className="col-4">
               <select
                 className="form-control"
-                name="gender"
                 // ref={register({ required: true })}
                 {...register('gender', { required: true })}
               >
@@ -98,7 +96,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                 // ref={register({ required: true })}
                 {...register('age', { required: true })}
                 className="form-control"
-                name="age"
                 placeholder="Your Age"
                 type="number"
               />
@@ -111,7 +108,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                 // ref={register({ required: true })}
                 {...register('weight', { required: true })}
                 className="form-control"
-                name="weight"
                 placeholder="Weight"
                 type="number"
               />
@@ -122,9 +118,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           </div>
 
           <div className="form-group text-right">
-            <button type="submit" className="btn btn-brand">
-              Send
-            </button>
+            <input className="btn btn-brand" type="submit" value="Send" />
           </div>
         </form>
       </Modal>
