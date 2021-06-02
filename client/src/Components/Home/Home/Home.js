@@ -1,6 +1,7 @@
 import React from 'react';
 import FeaturesServices from '../FeaturesServices.js/FeaturesServices';
 import Header from '../Header/Header';
+import MakeAppoinment from '../MakeAppoinment/MakeAppointment';
 import Services from '../Services/Services';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
       <Header />
       <Services />
       <FeaturesServices />
+      <MakeAppoinment />
     </div>
   );
 };
