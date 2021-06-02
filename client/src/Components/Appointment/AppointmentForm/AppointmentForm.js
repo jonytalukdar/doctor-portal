@@ -15,7 +15,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn }) => {
+const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
   const {
     register,
     handleSubmit,
@@ -34,7 +34,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn }) => {
       >
         <h2 className="text-center text-brand">{appointmentOn}</h2>
         <p className="text-secondary text-center">
-          {/* <small>ON {date.toDateString()}</small> */}
+          <small>ON {date.toDateString()}</small>
         </p>
         <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
