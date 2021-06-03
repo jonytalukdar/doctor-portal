@@ -26,6 +26,12 @@ client.connect((err) => {
     .db('doctorPortal')
     .collection('appointment');
 
+  app.get('/appointments', (req, res) => {
+    appointmentCollection.find({}).toArray((err, documents) => {
+      res.send(documents);
+    });
+  });
+
   app.post('/addAppointment', (req, res) => {
     const appointment = req.body;
     console.log(appointment);
