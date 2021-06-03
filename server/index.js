@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 const MongoClient = require('mongodb').MongoClient;
 
 require('dotenv').config();
@@ -10,6 +11,8 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('doctor'));
+app.use(fileUpload());
 
 app.get('/', (req, res) => {
   res.json({
@@ -48,6 +51,13 @@ client.connect((err) => {
       .toArray((err, documents) => {
         res.send(documents);
       });
+  });
+
+  app.post('/addADoctor', (req, res) => {
+    const file = req.files.file;
+    const name = req.files.name;
+    const email = req.files.email;
+    console.log(name, email, file);
   });
 });
 
